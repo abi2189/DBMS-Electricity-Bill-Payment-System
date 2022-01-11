@@ -1,6 +1,6 @@
 <?php
     $serverName = "localhost";
-    $dBName = "billing_system";
+    $dBName = "electricity";
     $dBusername = "root";
     $dBpassword = "";
 
