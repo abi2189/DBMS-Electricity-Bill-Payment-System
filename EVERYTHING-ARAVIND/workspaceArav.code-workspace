@@ -7,5 +7,7 @@
 			"path": "..\\..\\..\\..\\..\\xampp\\htdocs\\phpArav"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "phpArav"
+	}
 }
