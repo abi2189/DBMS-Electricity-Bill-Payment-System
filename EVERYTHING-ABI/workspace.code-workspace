@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\xampp\\htdocs\\phpAbi"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "phpAbi"
+	}
+}
