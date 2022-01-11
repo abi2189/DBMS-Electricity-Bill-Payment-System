@@ -1,0 +1,15 @@
+user_id,admin_id,fb_id,service_no,transaction_id,bill_no,oc_id,ec_id,cons_appl_ID,cons_category_ID,passw,phn_no,email_id,first_name,last_name,admin_control_area,auto_renewal,DOB,fb_time,fb_desc,fb_date,postal_code,account_no,card_holder_name,expiry_date,state,city,pincode,paid_amt,pay_status,pay_date,pay_time,bill_amt,bill_area,issue_month,issue_date,units_consumed_cycle,total_other_charges,fixed_charges,GST,Duty,total_energy_charges,tarrif_slab,energy_charges_per_unit,office,laundry,Heating_Cooling,lights,kitchen,misc,tools,units_consumed_heavy,units_consumed_medium,units_consumed_low
+
+user_id,phn_no -> passw,phn_no,email_id,first_name,last_name,DOB
+user_id,admin_id -> admin_control_area
+user_id -> auto_renewal,postal_code,account_no,card_holder_name,expiry_date
+fb_id,user_id -> fb_time,fb_desc,fb_date
+service_no -> state,city,pincode
+pincode -> state,city
+transaction_id -> paid_amt,pay_status,pay_date,pay_time
+bill_no -> units_consumed_cycle,oc_id,ec_id,cons_appl_ID,cons_category_ID,fixed_charges,total_other_charges,GST,Duty,tarrif_slab,total_energy_charges,energy_charges_per_unit,office,laundry,Heating_Cooling,lights,kitchen,misc,tools,units_consumed_heavy,units_consumed_medium,units_consumed_low
+oc_id,bill_no -> fixed_charges,total_other_charges,GST,Duty
+bill_no,ec_id -> total_energy_charges,tarrif_slab,energy_charges_per_unit
+cons_appl_ID,bill_no -> office,laundry,Heating_Cooling,lights,kitchen,misc,tools
+cons_category_ID,bill_no -> units_consumed_heavy,units_consumed_medium,units_consumed_low
+bill_no,user_id -> bill_area,issue_month,issue_date,paid_amt,pay_status,pay_date,pay_time,bill_amt
