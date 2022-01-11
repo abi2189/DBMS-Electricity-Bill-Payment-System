@@ -68,7 +68,7 @@ INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_ch
 INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges) VALUES('4312','1231','3421');
 
 -- 8.	other_charge
-CREATE TABLE Energy_charge(ec_id integer AUTO_INCREMENT , energy_charge_per_unit float, tariff_slab varchar(10), total_energy_charges float, CONSTRAINT PK_EC PRIMARY KEY(ec_id));
+CREATE TABLE other_charge(oc_id integer AUTO_INCREMENT, Duty float, GST float, fixed_charges float, total_other_charges float CONSTRAINT PK_EC PRIMARY KEY(oc_id));
 INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1212','5656','8988','5676');
 INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1122','3908','7771','3411');
 INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1200','5096','8966','5006');
@@ -142,7 +142,7 @@ INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(644021 , "Au
 
 -- 
 
-Bill_details-bill_no,user_id
- Consumption-cons_category_id
- Appliances-cons_appl_id
+-- Bill_details-bill_no,user_id
+--  Consumption-cons_category_id
+--  Appliances-cons_appl_id
 
