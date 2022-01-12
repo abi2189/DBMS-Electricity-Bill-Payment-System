@@ -36,19 +36,19 @@ insert into Admin_details values(772902,809080,231102);
 select*from Admin_details;
 
 -- 4.	Address
-CREATE TABLE Address(admin_id integer(6),pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
+CREATE TABLE Address(pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
 
-insert into Address values(202208,599118,'bangalore','karnataka');
-insert into Address values(902348,600001,'chennai','tamilnadu');
-insert into Address values(333444,110001,'dehli','haryana');
-insert into Address values(612903,230532,'mumbai','maharashtra');
-insert into Address values(809080,560091,'hyderabad','andrapradesh');
+insert into Address values(599118,'bangalore','karnataka');
+insert into Address values(600001,'chennai','tamilnadu');
+insert into Address values(110001,'dehli','haryana');
+insert into Address values(230532,'mumbai','maharashtra');
+insert into Address values(560091,'hyderabad','andrapradesh');
 
-insert into Address values(231105,599118,'bangalore','karnataka');
-insert into Address values(766090,600001,'chennai','tamilnadu');
-insert into Address values(504044,110001,'dehli','haryana');
-insert into Address values(872022,230532,'mumbai','maharashtra');
-insert into Address values(772902,560091,'hyderabad','andrapradesh');
+insert into Address values(599118,'bangalore','karnataka');
+insert into Address values(600001,'chennai','tamilnadu');
+insert into Address values(110001,'dehli','haryana');
+insert into Address values(230532,'mumbai','maharashtra');
+insert into Address values(560091,'hyderabad','andrapradesh');
 select * from Address;
 
 -- 5.	service_details
