@@ -14,7 +14,7 @@ insert into user_details values('aly872','Alyssa','Joseph','1988-03-14', '971667
 insert into user_details values('sla772','Slade','Goodwin','1989-09-05', '9154153682','slader.good@example.com','sliderslade');
 2.	customer_details
 CREATE TABLE customer_details(user_id varchar(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), expiry_date date, service_no integer(3), CONSTRAINT PK_cust PRIMARY KEY(user_id));
-
+alter table customer_details modify column service_no integer(3) not null unique;
 INSERT INTO customer_details VALUES('pat228', 1, 679543,'6052501403744375','Pat','2024-01-22',599);
 INSERT INTO customer_details VALUES('lan348', 1, 537341,'9759007875959620','Landon','2023-02-15',600);
 INSERT INTO customer_details VALUES('gla343', 1, 479001,'7503589801761989 ','Gladys','2025-01-02',110);
