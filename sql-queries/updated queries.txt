@@ -1,19 +1,17 @@
 1.	user_details
-CREATE TABLE user_details(user_id varchar(6), first_name varchar(30), last_name varchar(30), DOB date, phone_no varchar(10), email_id varchar(30), passw varchar(20), CONSTRAINT PK_Customer PRIMARY KEY(user_id, phone_no);
+CREATE TABLE user_details(user_id varchar(6), first_name varchar(30), last_name varchar(30), DOB date, phone_no varchar(10), email_id varchar(30), passw varchar(20), CONSTRAINT PK_Customer PRIMARY KEY(user_id, phone_no));
 
-
-insert into user_details values('pat228','Arav','Abi','20-Jan-89','9232348904','pat.johnston@example.com','jarhead');
-insert into user_details values('lan348','Landon ','Morris','12-Feb -92','9023488904','landon.morris@example.com','homeboy');
-insert into user_details values('gla343','Gladys ','Morris','10-Jan- 88','9232333444','gladys.morris@example.com','drpepper');
-insert into user_details values('lon612','Lonnie','Hopkins','22-Aug- 91','9129038904','lonnie.hopkins@example.com','justus');
-insert into user_details values('yvo809','Yvonne','Garrett','31-Dec -85','9090808904','yvonne.garrett@example.com','mustang6');
+insert into user_details values('pat228','Arav','Abi','1989-01-20','9232348904','pat.johnston@example.com','jarhead');
+insert into user_details values('lan348','Landon ','Morris','1992-02-12','9023488904','landon.morris@example.com','homeboy');
+insert into user_details values('gla343','Gladys ','Morris','1988-01-10','9232333444','gladys.morris@example.com','drpepper');
+insert into user_details values('lon612','Lonnie','Hopkins','1991-08-22','9129038904','lonnie.hopkins@example.com','justus');
+insert into user_details values('yvo809','Yvonne','Garrett','1985-12-31','9090808904','yvonne.garrett@example.com','mustang6');
 
 insert into user_details values('ari231','Arisa','Page','1985-01-05', '9055129336','ari.page@example.com','pages855');
 insert into user_details values('jes766','Jessie','McCoy','1986-10-08', '9043307087','jes.mcc@example.com','wadada12');
 insert into user_details values('bea504','Beatrice','Rowland','1987-04-05', '9016880423','beatrice.rows@example.com','pepperflakes');
 insert into user_details values('aly872','Alyssa','Joseph','1988-03-14', '9716673281','aly.joseph@example.com','among89us');
 insert into user_details values('sla772','Slade','Goodwin','1989-09-05', '9154153682','slader.good@example.com','sliderslade');
-
 2.	customer_details
 CREATE TABLE customer_details(user_id varchar(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), expiry_date date, service_no integer(3), CONSTRAINT PK_cust PRIMARY KEY(user_id));
 
