@@ -162,21 +162,12 @@ INSERT INTO Bill_details VALUES('746864205641',1234, 746864205641, 856, 813010 ,
 -- 13.	Feedback
 CREATE TABLE Feedback(fb_id integer(3), user_id integer(6),fb_desc varchar(50), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
 
-<<<<<<< Updated upstream
-INSERT INTO Feedback VALUES(127 ,136117 , "It was a really good user friendly website, made the paymenet process esier",'20 Jan 21','2021-01-20 23:30:23'); 
-INSERT INTO Feedback VALUES(929 ,777811 ,"Had a problem with payment process",'02 Nov 21','2021-11-02 14:48:33'); 
-INSERT INTO Feedback VALUES(244 ,442557 , "Payment was pretty smooth",'18 Jan 21','2021-01-18 06:46:34'); 
-INSERT INTO Feedback VALUES(743 ,992199 , "Auto renewal not working",'13 Feb 21','2021-02-13 12:56:45'); 
-INSERT INTO Feedback VALUES(192 ,367615 , "It is good",'09 Dec 21','2021-12-09 11:13:56'); 
-INSERT INTO Feedback VALUES(632 ,644021 , "Auto renewal option is really helpful",'01 Oct 21','2021-10-01 17:00:45'); 
-=======
 INSERT INTO Feedback VALUES(127 ,136117 , "It was a really good user friendly website, made the paymenet process esier",'2021-02-17','2021-01-20 23:30:23'); 
 INSERT INTO Feedback VALUES(929 ,777811 ,"Had a problem with payment process",'2021-01-23','2021-11-02 14:48:33'); 
 INSERT INTO Feedback VALUES(244 ,442557 , "Payment was pretty smooth",'2021-11-12','2021-01-18 06:46:34'); 
 INSERT INTO Feedback VALUES(743 ,992199 , "Auto renewal not working",'2021-12-22','2021-02-13 12:56:45'); 
 INSERT INTO Feedback VALUES(192 ,367615 , "It is good",'2021-02-17','2021-09-09 11:13:56'); 
 INSERT INTO Feedback VALUES(632 ,644021 , "Auto renewal option is really helpful",'2021-05-13','2021-10-01 17:00:45'); 
->>>>>>> Stashed changes
 
 
 

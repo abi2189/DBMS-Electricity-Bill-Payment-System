@@ -1,4 +1,4 @@
-1.	user_details
+-- 1.	user_details
 CREATE TABLE user_details(user_id varchar(6), first_name varchar(30), last_name varchar(30), DOB date, phone_no varchar(10), email_id varchar(30), passw varchar(20), CONSTRAINT PK_Customer PRIMARY KEY(user_id, phone_no));
 
 insert into user_details values('pat228','Arav','Abi','1989-01-20','9232348904','pat.johnston@example.com','jarhead');
@@ -12,7 +12,7 @@ insert into user_details values('jes766','Jessie','McCoy','1986-10-08', '9043307
 insert into user_details values('bea504','Beatrice','Rowland','1987-04-05', '9016880423','beatrice.rows@example.com','pepperflakes');
 insert into user_details values('aly872','Alyssa','Joseph','1988-03-14', '9716673281','aly.joseph@example.com','among89us');
 insert into user_details values('sla772','Slade','Goodwin','1989-09-05', '9154153682','slader.good@example.com','sliderslade');
-2.	customer_details
+-- 2.	customer_details
 CREATE TABLE customer_details(user_id varchar(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), expiry_date date, service_no integer(3), CONSTRAINT PK_cust PRIMARY KEY(user_id));
 alter table customer_details modify column service_no integer(3) not null unique;
 INSERT INTO customer_details VALUES('pat228', 1, 679543,'6052501403744375','Pat','2024-01-22',599);
@@ -21,14 +21,14 @@ INSERT INTO customer_details VALUES('gla343', 1, 479001,'7503589801761989 ','Gla
 INSERT INTO customer_details VALUES('lon612', 0, 432098,'3057171446652151 ','Lonnie','2026-07-29',230);
 INSERT INTO customer_details VALUES('yvo809', 0, 324561,'8417146815012068 ','Yvonne','2023-06-20',560);
 
-3.	Admin_details
+-- 3.	Admin_details
 CREATE TABLE Admin_details(admin_id varchar(6), user_id varchar(6), admin_control_area varchar(15), CONSTRAINT PK_Admin PRIMARY KEY(admin_id, user_id), FOREIGN);
 insert into Admin_details values('ari231','pat228',560024); 
 insert into Admin_details values('jes766','lan348',560024);
 insert into Admin_details values('bea504','gla343',560024);
 insert into Admin_details values('aly872','lon612',231102); 
 insert into Admin_details values('sla772','yvo809',231102); 
-4.	Address
+-- 4.	Address
 CREATE TABLE Address(pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
 
 insert into Address values(599118,'Bangalore','Karnataka');
@@ -36,7 +36,7 @@ insert into Address values(600001,'Chennai','Tamilnadu');
 insert into Address values(110001,'Delhi','Haryana');
 insert into Address values(230532,'Mumbai','Maharashtra');
 insert into Address values(560091,'Hyderabad','Andrapradesh');
-5.	service_details
+-- 5.	service_details
 CREATE TABLE service_details(service_no integer(3), pincode integer(6), CONSTRAINT PK_ser PRIMARY KEY(service_no), FOREIGN key(pincode) REFERENCES Address(pincode), FOREIGN key(service_no) REFERENCES customer_details(service_no));
 INSERT INTO service_details VALUES(599,599118);
 INSERT INTO service_details VALUES(600,600001);
