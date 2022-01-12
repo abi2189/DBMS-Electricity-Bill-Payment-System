@@ -39,7 +39,7 @@ insert into Address values(110001,'Delhi','Haryana');
 insert into Address values(230532,'Mumbai','Maharashtra');
 insert into Address values(560091,'Hyderabad','Andrapradesh');
 5.	service_details
-CREATE TABLE service_details(service_no integer(6), pincode integer, CONSTRAINT PK_ser PRIMARY KEY(service_no), FOREIGN key(pincode) REFERENCES Address(pincode), FOREIGN key(service_no) REFERENCES customer_details(service_no));
+CREATE TABLE service_details(service_no integer(3), pincode integer(6), CONSTRAINT PK_ser PRIMARY KEY(service_no), FOREIGN key(pincode) REFERENCES Address(pincode), FOREIGN key(service_no) REFERENCES customer_details(service_no));
 INSERT INTO service_details VALUES(599,599118);
 INSERT INTO service_details VALUES(600,600001);
 INSERT INTO service_details VALUES(110,110001);
