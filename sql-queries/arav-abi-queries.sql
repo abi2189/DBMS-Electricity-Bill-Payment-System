@@ -187,6 +187,7 @@ INSERT INTO Feedback VALUES(632 ,644021 , "Auto renewal option is really helpful
 --  Appliances-cons_appl_id
 paid
 SELECT * FROM `bill_details` WHERE issue_date < CURRENT_DATE();(>=)
+SELECT * FROM `bill_details` WHERE issue_date < CURRENT_DATE() ORDER BY issue_date DESC;
 
 current
 $store = SELECT MONTH(CURRENT_DATE()) as bs;
