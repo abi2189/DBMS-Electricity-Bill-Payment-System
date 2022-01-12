@@ -93,6 +93,15 @@ INSERT INTO Payment_details VALUES('6869803935',4326, 'Failed', '2021-11-09','20
 INSERT INTO Payment_details VALUES('1879582209', 4873, 'Successful', '2021-01-18','2021-01-18 06:46:34'); 
 INSERT INTO Payment_details VALUES('2757608823', 7931, 'Successful', '2021-02-13','2021-02-13 12:56:45'); 
 
+CREATE TABLE Bill_details(bill_no varchar(10), user_id varchar(6), transaction_id varchar(10), bill_amt float, bill_area integer, issue_month varchar(9), issue_date date, due_date date, discon_date date, CONSTRAINT PK_billDet PRIMARY KEY(bill_no, user_id), FOREIGN key(bill_no) REFERENCES Billing(bill_no), FOREIGN key(user_id) REFERENCES customer_details(user_id), FOREIGN KEY(transaction_id) REFERENCES Payment_details(transaction_id));
+
+
+INSERT INTO Bill_details VALUES('642581757212','yvo809', '8546509433', 4791, 231348 ,'Jan', '2022-02-02', '2022-02-02', '2022-02-02'); 
+INSERT INTO Bill_details VALUES('569225387797','pat228', '8485327687', 4326, 611273 ,'Nov', '2021-11-02', '2021-02-02', '2021-02-02'); 
+INSERT INTO Bill_details VALUES('159320833161','lan348', '2757608823', 4873, 893958 ,'Jan', '2021-01-18', '2021-03-18', '2021-03-18'); 
+INSERT INTO Bill_details VALUES('640961225729','gla343', '6869803935', 7931, 388011 ,'Feb', '2021-02-13', '2021-04-13', '2021-04-13'); 
+INSERT INTO Bill_details VALUES('936810891522','yvo809', '2757608823', 7347, 813010 ,'Oct', '2021-10-01', '2021-07-01', '2021-07-01'); 
+
 
 
 CREATE TABLE Feedback(fb_id integer(3), user_id varchar(6),fb_desc varchar(50), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
