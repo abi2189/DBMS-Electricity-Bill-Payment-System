@@ -102,17 +102,17 @@ INSERT INTO Consumption VALUES(20321,2345,567,250);
 
 
 -- 11.	Payment_details //Transaction
-CREATE TABLE Payment_details(transaction_id varchar(10), pay_amt float, pay_status varchar(10), pay_date date, pay_time timestamp, CONSTRAINT PK_Payment PRIMARY KEY(transaction_id));
+CREATE TABLE Payment_details(transaction_id integer(10), pay_amt float, pay_status varchar(10), pay_date date, pay_time timestamp, CONSTRAINT PK_Payment PRIMARY KEY(transaction_id));
 
-INSERT INTO Payment_details VALUES("642583257212",4791,"Successfull",'2022-01-21','2021-01-20 23:30:23'); 
-INSERT INTO Payment_details VALUES("569225387797" ,4326, "Successfull", '02 Nov 21','2021-11-02 14:48:33'); 
-INSERT INTO Payment_details VALUES("936810891522" ,4326, "Failed", '09 Nov 21','2021-09-02 14:48:33'); 
-INSERT INTO Payment_details VALUES( "159320833161", 4873,"Successfull",  '18 Jan 21','2021-01-18 06:46:34'); 
-INSERT INTO Payment_details VALUES( "640961225729", 7931 ,"Successfull", '13 Feb 21','2021-02-13 12:56:45'); 
-INSERT INTO Payment_details VALUES( "481215591710", 7931 ,"Failed", '13 Feb 21','2021-08-23 12:56:45'); 
-INSERT INTO Payment_details VALUES( "629331870828" ,6080, "Successfull",'09 Dec 21','2021-12-09 11:13:56'); 
-INSERT INTO Payment_details VALUES( "954297254243" ,7347 ,"Successfull",'01 Oct 21','2021-10-01 17:00:45'); 
-INSERT INTO Payment_details VALUES( "446864205641" ,7347 ,"Failed",'30 Oct 21','2021-10-01 17:00:45'); 
+INSERT INTO Payment_details VALUES(642583257212,4791,'Successfull','2022-01-21','2021-01-20 23:30:23'); 
+INSERT INTO Payment_details VALUES(569225387797,4326, 'Successfull', '02 Nov 21','2021-11-02 14:48:33'); 
+INSERT INTO Payment_details VALUES(936810891522,4326, 'Failed', '09 Nov 21','2021-09-02 14:48:33'); 
+INSERT INTO Payment_details VALUES( 159320833161, 4873,'Successfull',  '18 Jan 21','2021-01-18 06:46:34'); 
+INSERT INTO Payment_details VALUES( 640961225729, 7931 ,'Successfull', '13 Feb 21','2021-02-13 12:56:45'); 
+INSERT INTO Payment_details VALUES( 481215591710, 7931 ,'Failed', '13 Feb 21','2021-08-23 12:56:45'); 
+INSERT INTO Payment_details VALUES( 629331870828 ,6080, 'Successfull','09 Dec 21','2021-12-09 11:13:56'); 
+INSERT INTO Payment_details VALUES( 954297254243 ,7347 ,'Successfull','01 Oct 21','2021-10-01 17:00:45'); 
+INSERT INTO Payment_details VALUES( 446864205641 ,7347 ,'Failed','30 Oct 21','2021-10-01 17:00:45');
 
 
 
@@ -120,15 +120,19 @@ INSERT INTO Payment_details VALUES( "446864205641" ,7347 ,"Failed",'30 Oct 21','
 CREATE TABLE Bill_details(bill_no varchar(10), user_id integer(6), transaction_id integer(10), bill_amt float, bill_area integer, issue_month varchar(9), issue_date date,due_date date,discon_date date, CONSTRAINT PK_billDet PRIMARY KEY(bill_no, user_id), FOREIGN key(bill_no) REFERENCES Billing(bill_no), FOREIGN key(user_id) REFERENCES customer_details(user_id), FOREIGN KEY(transaction_id) REFERENCES Payment_details(transaction_id));
 
 
-INSERT INTO Bill_details VALUES('642581757212',1234, 642583757212, 4791, 231348 ,'Jan', '2022-02-02', '2022-02-02', '2022-02-02'); 
-INSERT INTO Bill_details VALUES('569225387797',1234, 569225387797, 4326, 611273 ,'Nov', '02 Nov 21', '02 Feb 21', '02 Feb 21'); 
-INSERT INTO Bill_details VALUES('159320833161',1234, 159320833161, 4873, 893958 ,'Jan', '18 Jan 21', '18 Mar 21', '18 Mar 21'); 
-INSERT INTO Bill_details VALUES('640961225729',1234, 640961225729, 7931, 388011 ,'Feb', '13 Feb 21', '13 Apr 21', '13 Apr 21'); 
-INSERT INTO Bill_details VALUES('629331870828',1234, 629331870828, 6080, 818357 ,'Dec', '09 Dec 21', '09 May 21', '09 May 21'); 
-INSERT INTO Bill_details VALUES('954297254243',1234, 954297254243, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jun 21', '01 Jun 21'); 
-INSERT INTO Bill_details VALUES('936810891522',1234, 936810891522, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jul 21', '01 Jul 21'); 
-INSERT INTO Bill_details VALUES('481215591710',1234, 481215591710, 7347, 813010 ,'Oct', '01 Oct 21', '01 Aug 21', '01 Aug 21'); 
-INSERT INTO Bill_details VALUES('446864205641',1234, 446864205641, 7347, 813010 ,'Oct', '01 Oct 21', '01 Sep 21', '01 Sep 21');
+INSERT INTO Bill_details VALUES('642581757212',1234, 642583757212, 4791, 231348 , 'Feb', '2021-02-12', '2021-02-17', '2021-02-22'); 
+INSERT INTO Bill_details VALUES('569225387797',1234, 569225387797, 4326, 611273 , 'Mar', '2021-03-12', '2021-03-17', '2021-03-22'); 
+INSERT INTO Bill_details VALUES('159320833161',1234, 159320833161, 4873, 893958 , 'Apr', '2021-04-12', '2021-04-17', '2021-04-22'); 
+INSERT INTO Bill_details VALUES('640961225729',1234, 640961225729, 7931, 388011 , 'May', '2021-05-12', '2021-05-17', '2021-05-22'); 
+INSERT INTO Bill_details VALUES('629331870828',1234, 629331870828, 6080, 818357 , 'Jun', '2021-06-12', '2021-06-17', '2021-06-22'); 
+INSERT INTO Bill_details VALUES('954297254243',1234, 954297254243, 7347, 813010 , 'Jul', '2021-07-12', '2021-07-17', '2021-07-22'); 
+INSERT INTO Bill_details VALUES('936810891522',1234, 936810891522, 7347, 813010 , 'Aug', '2021-08-12', '2021-08-17', '2021-08-22'); 
+INSERT INTO Bill_details VALUES('481215591710',1234, 481215591710, 7347, 813010 , 'Sep', '2021-09-12', '2021-09-17', '2021-09-22');
+INSERT INTO Bill_details VALUES('446864205641',1234, 446864205641, 7347, 813010 , 'Oct', '2021-10-12', '2021-10-17', '2021-10-22');
+INSERT INTO Bill_details VALUES('546864205641',1234, 546864205641, 7347, 813010 , 'Nov', '2021-11-12', '2021-11-17', '2021-11-22');
+INSERT INTO Bill_details VALUES('646864205641',1234, 646864205641, 7347, 813010 , 'Dec', '2021-12-12', '2021-12-17', '2021-12-22');
+INSERT INTO Bill_details VALUES('746864205641',1234, 746864205641, 7347, 813010 , 'Jan', '2022-01-12', '2021-12-17', '2021-12-22');
+
 
 
 -- 13.	Feedback
@@ -148,4 +152,13 @@ INSERT INTO Feedback VALUES(632 , 809280, 'Auto renewal option is really helpful
 -- Bill_details-bill_no,user_id
 --  Consumption-cons_category_id
 --  Appliances-cons_appl_id
+paid
+SELECT * FROM `bill_details` WHERE issue_date < CURRENT_DATE();(>=)
+
+current
+$store = SELECT MONTH(CURRENT_DATE()) as bs;
+check with ==>select SELECT MONTH(issue_date) FROM bill_details;
+prev month(-1)
+SELECT * FROM `bill_details` WHERE issue_date < CURRENT_DATE();
+
 
