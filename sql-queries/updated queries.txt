@@ -1,5 +1,5 @@
 1.	user_details
-CREATE TABLE user_details(user_id integer(6), first_name varchar(30), last_name varchar(30), DOB date, phone_no integer(10), email_id varchar(30), passw varchar(20), CONSTRAINT PK_Customer PRIMARY KEY(user_id, phone_no);
+CREATE TABLE user_details(user_id varchar(6), first_name varchar(30), last_name varchar(30), DOB date, phone_no varchar(10), email_id varchar(30), passw varchar(20), CONSTRAINT PK_Customer PRIMARY KEY(user_id, phone_no);
 
 
 insert into user_details values('pat228','Arav','Abi','20-Jan-89','9232348904','pat.johnston@example.com','jarhead');
