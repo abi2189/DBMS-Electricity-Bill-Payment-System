@@ -10,33 +10,45 @@ insert into user_details values(333444,'Gladys ','Morris','10 Jan 21','123233344
 insert into user_details values(612903,'Lonnie','Hopkins','22 Aug 20','6129038904','lonnie.hopkins@example.com','justus');
 insert into user_details values(809080,'Yvonne','Garrett','31 Dec 20','8090808904','yvonne.garrett@example.com','mustang6');
 
--- 2.	customer_details
-CREATE TABLE customer_details(user_id integer(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(18), card_holder_name varchar(20), expiry_date date, CONSTRAINT PK_cust PRIMARY KEY(user_id);
+insert into user_details values(231105,'Abi','Arav','10 Jan 21','9023488904','abi.ofcl@example.com','abi123');
+insert into user_details values(766090,'Landon ','Morris','12 Feb 20','9023488904','landon.morris@example.com','homeboy');
+insert into user_details values(504044,'Gladys ','Morris','10 Jan 21','1232333444','gladys.morris@example.com','drpepper');
+insert into user_details values(872022,'Lonnie','Hopkins','22 Aug 20','6129038904','lonnie.hopkins@example.com','justus');
+insert into user_details values(772902,'Yvonne','Garrett','31 Dec 20','8090808904','yvonne.garrett@example.com','mustang6');
 
-INSERT INTO customer_details VALUES(202208, 1, '679543','icici9981365427765','parag','22 jan 24');
-INSERT INTO customer_details VALUES(902348, 1, '537341','hdfc23998136154776','adithya','15 feb 23');
-INSERT INTO customer_details VALUES(333444, 1, '479001','cub12345098764512','amir','02 jan 25');
-INSERT INTO customer_details VALUES(612903, 0, '432098','canara56789012342','oscar','29 jul 26');
-INSERT INTO customer_details VALUES(809080, 0, '324561','indian76543209123','william','20 jun 23');
+-- 2.	customer_details
+CREATE TABLE customer_details(user_id integer(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), expiry_date date, CONSTRAINT PK_cust PRIMARY KEY(user_id);
+
+INSERT INTO customer_details VALUES(202208, 1, '679543','6052501403744375','parag','22 jan 24');
+INSERT INTO customer_details VALUES(902348, 1, '537341','9759007875959620','adithya','15 feb 23');
+INSERT INTO customer_details VALUES(333444, 1, '479001','7503589801761989 ','amir','02 jan 25');
+INSERT INTO customer_details VALUES(612903, 0, '432098','3057171446652151 ','oscar','29 jul 26');
+INSERT INTO customer_details VALUES(809080, 0, '324561','8417146815012068 ','william','20 jun 23');
 -- 3.	Admin_details
 CREATE TABLE Admin_details(admin_id integer(6), user_id integer(6), admin_control_area INTEGER, CONSTRAINT PK_Admin PRIMARY KEY(admin_id, user_id));
 
 -- CREATE TABLE Admin_details(admin_id varchar(6), user_id varchar(6), admin_control_area varchar(15), CONSTRAINT PK_Admin PRIMARY KEY(admin_id, user_id));
-insert into Admin_details values('300011',202208,560024); 
-insert into Admin_details values('766090',902348,560024);
-insert into Admin_details values('504044',333444,560024);
-insert into Admin_details values('872022',612903,231102); 
-insert into Admin_details values('772902',809080,231102); 
+insert into Admin_details values(231105,202208,560024); 
+insert into Admin_details values(766090,902348,560024);
+insert into Admin_details values(504044,333444,560024);
+insert into Admin_details values(872022,612903,231102); 
+insert into Admin_details values(772902,809080,231102); 
 select*from Admin_details;
 
 -- 4.	Address
-CREATE TABLE Address(pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
+CREATE TABLE Address(admin_id integer(6),pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
 
-insert into Address values('599118','bangalore','karnataka');
-insert into Address values('600001','chennai','tamilnadu');
-insert into Address values('110001','dehli','haryana');
-insert into Address values('230532','mumbai','maharashtra');
-insert into Address values('560091','hyderabad','andrapradesh');
+insert into Address values(202208,599118,'bangalore','karnataka');
+insert into Address values(902348,600001,'chennai','tamilnadu');
+insert into Address values(333444,110001,'dehli','haryana');
+insert into Address values(612903,230532,'mumbai','maharashtra');
+insert into Address values(809080,560091,'hyderabad','andrapradesh');
+
+insert into Address values(231105,599118,'bangalore','karnataka');
+insert into Address values(766090,600001,'chennai','tamilnadu');
+insert into Address values(504044,110001,'dehli','haryana');
+insert into Address values(872022,230532,'mumbai','maharashtra');
+insert into Address values(772902,560091,'hyderabad','andrapradesh');
 select * from Address;
 
 -- 5.	service_details
@@ -138,12 +150,21 @@ INSERT INTO Bill_details VALUES('746864205641',1234, 746864205641, 7347, 813010 
 -- 13.	Feedback
 CREATE TABLE Feedback(fb_id integer(3), user_id integer(6),fb_desc varchar(50), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
 
+<<<<<<< Updated upstream
 INSERT INTO Feedback VALUES(127 , 202208, 'It was a really good user friendly website, made the paymenet process esier','20 Jan 21','2021-01-20 23:30:23'); 
 INSERT INTO Feedback VALUES(929 , 902348, 'Had a problem with payment process','2021-11-02','2021-11-02 14:48:33'); 
 INSERT INTO Feedback VALUES(244 , 333444, 'Payment was pretty smooth','18 Jan 21','2021-01-18 06:46:34'); 
 INSERT INTO Feedback VALUES(743 , 612903, 'Auto renewal not working','13 Feb 21','2021-02-13 12:56:45'); 
 INSERT INTO Feedback VALUES(192 , 809080, 'It is good','09 Dec 21','2021-12-09 11:13:56'); 
 INSERT INTO Feedback VALUES(632 , 809280, 'Auto renewal option is really helpful','01 Oct 21','2021-10-01 17:00:45'); 
+=======
+INSERT INTO Feedback VALUES(127 ,136117 , "It was a really good user friendly website, made the paymenet process esier",'20 Jan 21','2021-01-20 23:30:23'); 
+INSERT INTO Feedback VALUES(929 ,777811 ,"Had a problem with payment process",'02 Nov 21','2021-11-02 14:48:33'); 
+INSERT INTO Feedback VALUES(244 ,442557 , "Payment was pretty smooth",'18 Jan 21','2021-01-18 06:46:34'); 
+INSERT INTO Feedback VALUES(743 ,992199 , "Auto renewal not working",'13 Feb 21','2021-02-13 12:56:45'); 
+INSERT INTO Feedback VALUES(192 ,367615 , "It is good",'09 Dec 21','2021-12-09 11:13:56'); 
+INSERT INTO Feedback VALUES(632 ,644021 , "Auto renewal option is really helpful",'01 Oct 21','2021-10-01 17:00:45'); 
+>>>>>>> Stashed changes
 
 
 
