@@ -73,19 +73,19 @@ INSERT INTO Billing(units_consumed_cycle) VALUES('2250');
 -- 7.	Energy_charge //BILLS
 CREATE TABLE Energy_charge(ec_id integer AUTO_INCREMENT , energy_charge_per_unit float, tariff_slab varchar(10), total_energy_charges float, CONSTRAINT PK_EC PRIMARY KEY(ec_id));
 
-INSERT INTO Energy_charge VALUES(222,'1200','2342','4366');
-INSERT INTO Energy_charge VALUES(222,'2200','3442','2340');
-INSERT INTO Energy_charge VALUES(222,'3200','4442','2531');
-INSERT INTO Energy_charge VALUES(222,'1908','2341','1234');
-INSERT INTO Energy_charge VALUES(222,'4312','1231','3421');
+INSERT INTO Energy_charge VALUES(222, 1.5,'Domestic LT-1',220);
+INSERT INTO Energy_charge VALUES(262, 1.5,'Domestic LT-1',145);
+INSERT INTO Energy_charge VALUES(939, 1.5,'Domestic LT-2',823);
+INSERT INTO Energy_charge VALUES(738, 1.5,'Domestic LT-1',923);
+INSERT INTO Energy_charge VALUES(278, 1.5,'Domestic LT-1',1043);
 
 -- 8.	other_charge //BILLS
 CREATE TABLE other_charge(oc_id integer AUTO_INCREMENT, Duty float, GST float, fixed_charges float, total_other_charges float CONSTRAINT PK_EC PRIMARY KEY(oc_id));
-INSERT INTO other_charge VALUES(111,'1212','5656','8988','5676');
-INSERT INTO other_charge VALUES(111,'1122','3908','7771','3411');
-INSERT INTO other_charge VALUES(111,'1200','5096','8966','5006');
-INSERT INTO other_charge VALUES(111,'3213','2000','1090','5555');
-INSERT INTO other_charge VALUES(111,'1012','7878','2134','6191');
+INSERT INTO other_charge VALUES(222,'1212','5656','8988',153);
+INSERT INTO other_charge VALUES(262,'1122','3908','7771',133);
+INSERT INTO other_charge VALUES(939,'1200','5096','8966',164);
+INSERT INTO other_charge VALUES(738,'3213','2000','1090',136);
+INSERT INTO other_charge VALUES(278,'1012','7878','2134',184);
 
 
 
@@ -126,45 +126,34 @@ INSERT INTO Payment_details VALUES( 629331870828 ,6080, 'Successfull','09 Dec 21
 INSERT INTO Payment_details VALUES( 954297254243 ,7347 ,'Successfull','01 Oct 21','2021-10-01 17:00:45'); 
 INSERT INTO Payment_details VALUES( 446864205641 ,7347 ,'Failed','30 Oct 21','2021-10-01 17:00:45');
 
-
-
 -- 12.	Bill_details //BILLS
 CREATE TABLE Bill_details(bill_no varchar(10), user_id integer(6), transaction_id integer(10), bill_amt float, bill_area integer, issue_month varchar(9), issue_date date,due_date date,discon_date date, CONSTRAINT PK_billDet PRIMARY KEY(bill_no, user_id), FOREIGN key(bill_no) REFERENCES Billing(bill_no), FOREIGN key(user_id) REFERENCES customer_details(user_id), FOREIGN KEY(transaction_id) REFERENCES Payment_details(transaction_id));
 
 
-INSERT INTO Bill_details VALUES('642581757212',1234, 642583757212, 4791, 231348 , 'Feb', '2021-02-12', '2021-02-17', '2021-02-22'); 
-INSERT INTO Bill_details VALUES('569225387797',1234, 569225387797, 4326, 611273 , 'Mar', '2021-03-12', '2021-03-17', '2021-03-22'); 
-INSERT INTO Bill_details VALUES('159320833161',1234, 159320833161, 4873, 893958 , 'Apr', '2021-04-12', '2021-04-17', '2021-04-22'); 
-INSERT INTO Bill_details VALUES('640961225729',1234, 640961225729, 7931, 388011 , 'May', '2021-05-12', '2021-05-17', '2021-05-22'); 
-INSERT INTO Bill_details VALUES('629331870828',1234, 629331870828, 6080, 818357 , 'Jun', '2021-06-12', '2021-06-17', '2021-06-22'); 
-INSERT INTO Bill_details VALUES('954297254243',1234, 954297254243, 7347, 813010 , 'Jul', '2021-07-12', '2021-07-17', '2021-07-22'); 
-INSERT INTO Bill_details VALUES('936810891522',1234, 936810891522, 7347, 813010 , 'Aug', '2021-08-12', '2021-08-17', '2021-08-22'); 
-INSERT INTO Bill_details VALUES('481215591710',1234, 481215591710, 7347, 813010 , 'Sep', '2021-09-12', '2021-09-17', '2021-09-22');
-INSERT INTO Bill_details VALUES('446864205641',1234, 446864205641, 7347, 813010 , 'Oct', '2021-10-12', '2021-10-17', '2021-10-22');
-INSERT INTO Bill_details VALUES('546864205641',1234, 546864205641, 7347, 813010 , 'Nov', '2021-11-12', '2021-11-17', '2021-11-22');
-INSERT INTO Bill_details VALUES('646864205641',1234, 646864205641, 7347, 813010 , 'Dec', '2021-12-12', '2021-12-17', '2021-12-22');
-INSERT INTO Bill_details VALUES('746864205641',1234, 746864205641, 7347, 813010 , 'Jan', '2022-01-12', '2021-12-17', '2021-12-22');
+INSERT INTO Bill_details VALUES('642581757212',1234, 642583757212, 479, 231348 , 'Feb', '2021-02-12', '2021-02-17', '2021-02-22'); 
+INSERT INTO Bill_details VALUES('569225387797',1234, 569225387797, 432, 611273 , 'Mar', '2021-03-12', '2021-03-17', '2021-03-22'); 
+INSERT INTO Bill_details VALUES('159320833161',1234, 159320833161, 487, 893958 , 'Apr', '2021-04-12', '2021-04-17', '2021-04-22'); 
+INSERT INTO Bill_details VALUES('640961225729',1234, 640961225729, 793, 388011 , 'May', '2021-05-12', '2021-05-17', '2021-05-22'); 
+INSERT INTO Bill_details VALUES('629331870828',1234, 629331870828, 608, 818357 , 'Jun', '2021-06-12', '2021-06-17', '2021-06-22'); 
+INSERT INTO Bill_details VALUES('954297254243',1234, 954297254243, 734, 813010 , 'Jul', '2021-07-12', '2021-07-17', '2021-07-22'); 
+INSERT INTO Bill_details VALUES('936810891522',1234, 936810891522, 967, 813010 , 'Aug', '2021-08-12', '2021-08-17', '2021-08-22'); 
+INSERT INTO Bill_details VALUES('481215591710',1234, 481215591710, 858, 813010 , 'Sep', '2021-09-12', '2021-09-17', '2021-09-22');
+INSERT INTO Bill_details VALUES('446864205641',1234, 446864205641, 568, 813010 , 'Oct', '2021-10-12', '2021-10-17', '2021-10-22');
+INSERT INTO Bill_details VALUES('546864205641',1234, 546864205641, 856, 813010 , 'Nov', '2021-11-12', '2021-11-17', '2021-11-22');
+INSERT INTO Bill_details VALUES('646864205641',1234, 646864205641, 967, 813010 , 'Dec', '2021-12-12', '2021-12-17', '2021-12-22');
+INSERT INTO Bill_details VALUES('746864205641',1234, 746864205641, 856, 813010 , 'Jan', '2022-01-12', '2021-12-17', '2021-12-22');
 
 
 
 -- 13.	Feedback
 CREATE TABLE Feedback(fb_id integer(3), user_id integer(6),fb_desc varchar(50), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
 
-<<<<<<< Updated upstream
-INSERT INTO Feedback VALUES(127 , 202208, 'It was a really good user friendly website, made the paymenet process esier','20 Jan 21','2021-01-20 23:30:23'); 
-INSERT INTO Feedback VALUES(929 , 902348, 'Had a problem with payment process','2021-11-02','2021-11-02 14:48:33'); 
-INSERT INTO Feedback VALUES(244 , 333444, 'Payment was pretty smooth','18 Jan 21','2021-01-18 06:46:34'); 
-INSERT INTO Feedback VALUES(743 , 612903, 'Auto renewal not working','13 Feb 21','2021-02-13 12:56:45'); 
-INSERT INTO Feedback VALUES(192 , 809080, 'It is good','09 Dec 21','2021-12-09 11:13:56'); 
-INSERT INTO Feedback VALUES(632 , 809280, 'Auto renewal option is really helpful','01 Oct 21','2021-10-01 17:00:45'); 
-=======
 INSERT INTO Feedback VALUES(127 ,136117 , "It was a really good user friendly website, made the paymenet process esier",'20 Jan 21','2021-01-20 23:30:23'); 
 INSERT INTO Feedback VALUES(929 ,777811 ,"Had a problem with payment process",'02 Nov 21','2021-11-02 14:48:33'); 
 INSERT INTO Feedback VALUES(244 ,442557 , "Payment was pretty smooth",'18 Jan 21','2021-01-18 06:46:34'); 
 INSERT INTO Feedback VALUES(743 ,992199 , "Auto renewal not working",'13 Feb 21','2021-02-13 12:56:45'); 
 INSERT INTO Feedback VALUES(192 ,367615 , "It is good",'09 Dec 21','2021-12-09 11:13:56'); 
 INSERT INTO Feedback VALUES(632 ,644021 , "Auto renewal option is really helpful",'01 Oct 21','2021-10-01 17:00:45'); 
->>>>>>> Stashed changes
 
 
 
