@@ -61,24 +61,24 @@ INSERT INTO Billing(units_consumed_cycle) VALUES('2250');
 -- 7.	Energy_charge //BILLS
 CREATE TABLE Energy_charge(ec_id integer AUTO_INCREMENT , energy_charge_per_unit float, tariff_slab varchar(10), total_energy_charges float, CONSTRAINT PK_EC PRIMARY KEY(ec_id));
 
-INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges) VALUES('1200','2342','4366');
-INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges)) VALUES('2200','3442','2340');
-INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges) VALUES('3200','4442','2531');
-INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges) VALUES('1908','2341','1234');
-INSERT INTO Energy_charge(energy_charge_per_unit , tariff_slab , total_energy_charges) VALUES('4312','1231','3421');
+INSERT INTO Energy_charge VALUES(222,'1200','2342','4366');
+INSERT INTO Energy_charge VALUES(222,'2200','3442','2340');
+INSERT INTO Energy_charge VALUES(222,'3200','4442','2531');
+INSERT INTO Energy_charge VALUES(222,'1908','2341','1234');
+INSERT INTO Energy_charge VALUES(222,'4312','1231','3421');
 
 -- 8.	other_charge //BILLS
 CREATE TABLE other_charge(oc_id integer AUTO_INCREMENT, Duty float, GST float, fixed_charges float, total_other_charges float CONSTRAINT PK_EC PRIMARY KEY(oc_id));
-INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1212','5656','8988','5676');
-INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1122','3908','7771','3411');
-INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1200','5096','8966','5006');
-INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('3213','2000','1090','5555');
-INSERT INTO other_charge(Duty, GST, fixed_charges, total_other_charges) VALUES('1012','7878','2134','6191');
+INSERT INTO other_charge VALUES(111,'1212','5656','8988','5676');
+INSERT INTO other_charge VALUES(111,'1122','3908','7771','3411');
+INSERT INTO other_charge VALUES(111,'1200','5096','8966','5006');
+INSERT INTO other_charge VALUES(111,'3213','2000','1090','5555');
+INSERT INTO other_charge VALUES(111,'1012','7878','2134','6191');
 
 
 
 
--- 9.	Appliances
+-- 9.	Appliances //Analysis
 CREATE TABLE Appliances(cons_appl_id integer(5), office integer(3), laundry integer(3), Heating_Cooling integer(3), Living_Room integer(3), lights integer(3), kitchen integer(3), misc integer(3), tools integer(3), CONSTRAINT PK_EC PRIMARY KEY(cons_appl_id));
 
 INSERT INTO Appliances VALUES(86490,10,20,15,23,12,18,6,9); 
@@ -89,7 +89,7 @@ INSERT INTO Appliances VALUES(11223,45421,90213,32412,32675,45451,23421,23421,23
 
 
 
--- 10.	Consumption
+-- 10.	Consumption //Analysis
 CREATE TABLE Consumption(cons_category_id integer, units_consumed_heavy integer(3), units_consumed_medium integer(3), units_consumed_low integer(3), CONSTRAINT PK_EC PRIMARY KEY(cons_category_id));
 
 INSERT INTO Consumption VALUES(86490,102,48,89);
@@ -101,18 +101,18 @@ INSERT INTO Consumption VALUES(20321,2345,567,250);
 
 
 
--- 11.	Payment_details
+-- 11.	Payment_details //Transaction
 CREATE TABLE Payment_details(transaction_id varchar(10), pay_amt float, pay_status varchar(10), pay_date date, pay_time timestamp, CONSTRAINT PK_Payment PRIMARY KEY(transaction_id));
 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES("642583757212",4791,"Successfull",'20 Jan 21','2021-01-20 23:30:23'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES("569225387797" ,4326, "Successfull", '02 Nov 21','2021-11-02 14:48:33'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES("936810891522" ,4326, "Failed", '09 Nov 21','2021-09-02 14:48:33'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "159320833161", 4873,"Successfull",  '18 Jan 21','2021-01-18 06:46:34'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "640961225729", 7931 ,"Successfull", '13 Feb 21','2021-02-13 12:56:45'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "481215591710", 7931 ,"Failed", '13 Feb 21','2021-08-23 12:56:45'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "629331870828" ,6080, "Successfull",'09 Dec 21','2021-12-09 11:13:56'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "954297254243" ,7347 ,"Successfull",'01 Oct 21','2021-10-01 17:00:45'); 
-INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, pay_time) VALUES( "446864205641" ,7347 ,"Failed",'30 Oct 21','2021-10-01 17:00:45'); 
+INSERT INTO Payment_details VALUES("642583257212",4791,"Successfull",'2022-01-21','2021-01-20 23:30:23'); 
+INSERT INTO Payment_details VALUES("569225387797" ,4326, "Successfull", '02 Nov 21','2021-11-02 14:48:33'); 
+INSERT INTO Payment_details VALUES("936810891522" ,4326, "Failed", '09 Nov 21','2021-09-02 14:48:33'); 
+INSERT INTO Payment_details VALUES( "159320833161", 4873,"Successfull",  '18 Jan 21','2021-01-18 06:46:34'); 
+INSERT INTO Payment_details VALUES( "640961225729", 7931 ,"Successfull", '13 Feb 21','2021-02-13 12:56:45'); 
+INSERT INTO Payment_details VALUES( "481215591710", 7931 ,"Failed", '13 Feb 21','2021-08-23 12:56:45'); 
+INSERT INTO Payment_details VALUES( "629331870828" ,6080, "Successfull",'09 Dec 21','2021-12-09 11:13:56'); 
+INSERT INTO Payment_details VALUES( "954297254243" ,7347 ,"Successfull",'01 Oct 21','2021-10-01 17:00:45'); 
+INSERT INTO Payment_details VALUES( "446864205641" ,7347 ,"Failed",'30 Oct 21','2021-10-01 17:00:45'); 
 
 
 
@@ -120,29 +120,26 @@ INSERT INTO Payment_details( transaction_id , pay_amt  , pay_status, pay_date, p
 CREATE TABLE Bill_details(bill_no varchar(10), user_id integer(6), transaction_id integer(10), bill_amt float, bill_area integer, issue_month varchar(9), issue_date date,due_date date,discon_date date, CONSTRAINT PK_billDet PRIMARY KEY(bill_no, user_id), FOREIGN key(bill_no) REFERENCES Billing(bill_no), FOREIGN key(user_id) REFERENCES customer_details(user_id), FOREIGN KEY(transaction_id) REFERENCES Payment_details(transaction_id));
 
 
-INSERT INTO Bill_details VALUES("642583757212",1234, 642583757212, 4791, 231348 ,'Jan', '20 Jan 21', '20 Jan 21', '20 Jan 21'); 
-INSERT INTO Bill_details VALUES("569225387797",1234, 569225387797, 4326, 611273 ,'Nov', '02 Nov 21', '02 Feb 21', '02 Feb 21'); 
-INSERT INTO Bill_details VALUES("159320833161",1234, 159320833161, 4873, 893958 ,'Jan', '18 Jan 21', '18 Mar 21', '18 Mar 21'); 
-INSERT INTO Bill_details VALUES("640961225729",1234, 640961225729, 7931, 388011 ,'Feb', '13 Feb 21', '13 Apr 21', '13 Apr 21'); 
-INSERT INTO Bill_details VALUES("629331870828",1234, 629331870828, 6080, 818357 ,'Dec', '09 Dec 21', '09 May 21', '09 May 21'); 
-INSERT INTO Bill_details VALUES("954297254243",1234, 954297254243, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jun 21', '01 Jun 21'); 
-INSERT INTO Bill_details VALUES("936810891522",1234, 936810891522, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jul 21', '01 Jul 21'); 
-INSERT INTO Bill_details VALUES("481215591710",1234, 481215591710, 7347, 813010 ,'Oct', '01 Oct 21', '01 Aug 21', '01 Aug 21'); 
-INSERT INTO Bill_details VALUES("446864205641",1234, 446864205641, 7347, 813010 ,'Oct', '01 Oct 21', '01 Sep 21', '01 Sep 21');
-
-
-
+INSERT INTO Bill_details VALUES('642581757212',1234, 642583757212, 4791, 231348 ,'Jan', '2022-02-02', '2022-02-02', '2022-02-02'); 
+INSERT INTO Bill_details VALUES('569225387797',1234, 569225387797, 4326, 611273 ,'Nov', '02 Nov 21', '02 Feb 21', '02 Feb 21'); 
+INSERT INTO Bill_details VALUES('159320833161',1234, 159320833161, 4873, 893958 ,'Jan', '18 Jan 21', '18 Mar 21', '18 Mar 21'); 
+INSERT INTO Bill_details VALUES('640961225729',1234, 640961225729, 7931, 388011 ,'Feb', '13 Feb 21', '13 Apr 21', '13 Apr 21'); 
+INSERT INTO Bill_details VALUES('629331870828',1234, 629331870828, 6080, 818357 ,'Dec', '09 Dec 21', '09 May 21', '09 May 21'); 
+INSERT INTO Bill_details VALUES('954297254243',1234, 954297254243, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jun 21', '01 Jun 21'); 
+INSERT INTO Bill_details VALUES('936810891522',1234, 936810891522, 7347, 813010 ,'Oct', '01 Oct 21', '01 Jul 21', '01 Jul 21'); 
+INSERT INTO Bill_details VALUES('481215591710',1234, 481215591710, 7347, 813010 ,'Oct', '01 Oct 21', '01 Aug 21', '01 Aug 21'); 
+INSERT INTO Bill_details VALUES('446864205641',1234, 446864205641, 7347, 813010 ,'Oct', '01 Oct 21', '01 Sep 21', '01 Sep 21');
 
 
 -- 13.	Feedback
 CREATE TABLE Feedback(fb_id integer(3), user_id integer(6),fb_desc varchar(50), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(127 ,136117 , "It was a really good user friendly website, made the paymenet process esier",'20 Jan 21','2021-01-20 23:30:23'); 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(929 ,777811 ,"Had a problem with payment process",'02 Nov 21','2021-11-02 14:48:33'); 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(244 ,442557 , "Payment was pretty smooth",'18 Jan 21','2021-01-18 06:46:34'); 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(743 ,992199 , "Auto renewal not working",'13 Feb 21','2021-02-13 12:56:45'); 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(192 ,367615 , "It is good",'09 Dec 21','2021-12-09 11:13:56'); 
-INSERT INTO Feedback(user_id , fb_desc , fb_date  , fb_time) VALUES(632 ,644021 , "Auto renewal option is really helpful",'01 Oct 21','2021-10-01 17:00:45'); 
+INSERT INTO Feedback VALUES(127 , 202208, 'It was a really good user friendly website, made the paymenet process esier','20 Jan 21','2021-01-20 23:30:23'); 
+INSERT INTO Feedback VALUES(929 , 902348, 'Had a problem with payment process','2021-11-02','2021-11-02 14:48:33'); 
+INSERT INTO Feedback VALUES(244 , 333444, 'Payment was pretty smooth','18 Jan 21','2021-01-18 06:46:34'); 
+INSERT INTO Feedback VALUES(743 , 612903, 'Auto renewal not working','13 Feb 21','2021-02-13 12:56:45'); 
+INSERT INTO Feedback VALUES(192 , 809080, 'It is good','09 Dec 21','2021-12-09 11:13:56'); 
+INSERT INTO Feedback VALUES(632 , 809280, 'Auto renewal option is really helpful','01 Oct 21','2021-10-01 17:00:45'); 
 
 
 
