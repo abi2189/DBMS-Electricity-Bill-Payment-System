@@ -11,27 +11,30 @@ insert into user_details values('jes766','Jessie','McCoy','1986-10-08', '9043307
 insert into user_details values('bea504','Beatrice','Rowland','1987-04-05', '9016880423','beatrice.rows@example.com','pepperflakes');
 insert into user_details values('aly872','Alyssa','Joseph','1988-03-14', '9716673281','aly.joseph@example.com','among89us');
 insert into user_details values('sla772','Slade','Goodwin','1989-09-05', '9154153682','slader.good@example.com','sliderslade');
-CREATE TABLE customer_details(user_id varchar(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), expiry_date date, service_no integer(3), CONSTRAINT PK_cust PRIMARY KEY(user_id));
+CREATE TABLE customer_details(user_id varchar(6), auto_renewal INTEGER(1), postal_code integer(6), account_no varchar(16), card_holder_name varchar(20), card_no varchar(20), expiry_date date, service_no integer(3), CONSTRAINT PK_cust PRIMARY KEY(user_id));
 alter table customer_details modify column service_no integer(3) not null unique;
-INSERT INTO customer_details VALUES('pat228', 1, 679543,'6052501403744375','Pat','2024-01-22',599);
-INSERT INTO customer_details VALUES('lan348', 1, 537341,'9759007875959620','Landon','2023-02-15',600);
-INSERT INTO customer_details VALUES('gla343', 1, 479001,'7503589801761989 ','Gladys','2025-01-02',110);
-INSERT INTO customer_details VALUES('lon612', 0, 432098,'3057171446652151 ','Lonnie','2026-07-29',230);
-INSERT INTO customer_details VALUES('yvo809', 0, 324561,'8417146815012068 ','Yvonne','2023-06-20',560);
+INSERT INTO customer_details VALUES('pat228', 1, 679543,'6052501403744375','Pat', '2753585703246848', '2024-01-22',599);
+INSERT INTO customer_details VALUES('lan348', 1, 537341,'9759007875959620','Landon','5601580950710594 ','2023-02-15',600);
+INSERT INTO customer_details VALUES('gla343', 1, 479001,'7503589801761989 ','Gladys','3154166141412956 ', '2025-01-02',110);
+INSERT INTO customer_details VALUES('lon612', 0, 432098,'3057171446652151 ','Lonnie','6607822161935602 ', '2026-07-29',230);
+INSERT INTO customer_details VALUES('yvo809', 0, 324561,'8417146815012068 ','Yvonne','3949438716933940 ', '2023-06-20',560);
 
+-- 3.	Admin_details
 CREATE TABLE Admin_details(admin_id varchar(6), user_id varchar(6), admin_control_area varchar(15), CONSTRAINT PK_Admin PRIMARY KEY(admin_id, user_id));
 insert into Admin_details values('ari231','pat228',560024); 
 insert into Admin_details values('jes766','lan348',560024);
 insert into Admin_details values('bea504','gla343',560024);
 insert into Admin_details values('aly872','lon612',231102); 
 insert into Admin_details values('sla772','yvo809',231102); 
-CREATE TABLE Address(pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
+-- 4.	Address
+CREATE TABLE Address(user_id varchar(6), pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
 
-insert into Address values(599118,'Bangalore','Karnataka');
-insert into Address values(600001,'Chennai','Tamilnadu');
-insert into Address values(110001,'Delhi','Haryana');
-insert into Address values(230532,'Mumbai','Maharashtra');
-insert into Address values(560091,'Hyderabad','Andrapradesh');
+insert into Address values('pat228',599118,'Bangalore','Karnataka');
+insert into Address values('lan348',600001,'Chennai','Tamilnadu');
+insert into Address values('gla343',110001,'Delhi','Haryana');
+insert into Address values('lon612',230532,'Mumbai','Maharashtra');
+insert into Address values('yvo809',560091,'Hyderabad','Andrapradesh');
+-- 5.	service_details
 CREATE TABLE service_details(service_no integer(3), pincode integer(6), CONSTRAINT PK_ser PRIMARY KEY(service_no), FOREIGN key(pincode) REFERENCES Address(pincode), FOREIGN key(service_no) REFERENCES customer_details(service_no));
 INSERT INTO service_details VALUES(599,599118);
 INSERT INTO service_details VALUES(600,600001);
@@ -86,7 +89,7 @@ INSERT INTO Billing VALUES('446864205641', 55785, 11224, 224, 114, 2250);
 INSERT INTO Billing VALUES('546864205641', 55785, 11224, 224, 114, 2250);
 INSERT INTO Billing VALUES('646864205641', 55785, 11224, 224, 114, 2250);
 INSERT INTO Billing VALUES('746864205641', 55785, 11224, 224, 114, 2250);
-
+INSERT INTO Billing VALUES('160079570022', 86490, 11233, 224, 114, 2250);
 
 
 CREATE TABLE Payment_details(transaction_id varchar(10), pay_amt float, pay_status varchar(10), pay_date date, pay_time timestamp, CONSTRAINT PK_Payment PRIMARY KEY(transaction_id));
@@ -103,7 +106,7 @@ INSERT INTO Payment_details VALUES('8546549433', 7931, 'Successful', '2021-02-13
 INSERT INTO Payment_details VALUES('8435327687', 7931, 'Successful', '2021-02-13','2021-02-13 12:56:45'); 
 INSERT INTO Payment_details VALUES('2757208823', 7931, 'Successful', '2021-02-13','2021-02-13 12:56:45'); 
 INSERT INTO Payment_details VALUES('6863803935', 7931, 'Successful', '2021-02-13','2021-02-13 12:56:45'); 
-
+INSERT INTO Payment_details VALUES('8741015707',4791, 'Successful', '2022-01-10','2022-01-10 23:30:23'); 
 
 CREATE TABLE Bill_details(bill_no varchar(12), user_id varchar(6), transaction_id varchar(10), bill_amt float, bill_area integer, issue_month varchar(9), issue_date date, due_date date, discon_date date, CONSTRAINT PK_billDet PRIMARY KEY(bill_no, user_id), FOREIGN key(bill_no) REFERENCES Billing(bill_no), FOREIGN key(user_id) REFERENCES customer_details(user_id), FOREIGN KEY(transaction_id) REFERENCES Payment_details(transaction_id));
 
@@ -126,6 +129,7 @@ INSERT INTO Bill_details VALUES('446864205641','yvo809', '8546549433', 568, 8130
 INSERT INTO Bill_details VALUES('546864205641','yvo809', '8435327687', 856, 813010 , 'Nov', '2021-11-12', '2021-11-17', '2021-11-22');
 INSERT INTO Bill_details VALUES('646864205641','yvo809', '2757208823', 967, 813010 , 'Dec', '2021-12-12', '2021-12-17', '2021-12-22');
 INSERT INTO Bill_details VALUES('746864205641','yvo809', '6863803935', 856, 813010 , 'Jan', '2022-01-12', '2021-12-17', '2021-12-22');
+INSERT INTO Bill_details VALUES('160079570022','yvo809', '8741015707', 4791, 813010 , 'Jan', '2021-12-13', '2022-01-13', '2022-01-22');
 
 CREATE TABLE Feedback(fb_id integer(3), user_id varchar(6),fb_desc varchar(100), fb_date date, fb_time timestamp, Constraint PK_Feedback PRIMARY KEY(fb_id, user_id), FOREIGN KEY(user_id) REFERENCES customer_details(user_id)); 
 
