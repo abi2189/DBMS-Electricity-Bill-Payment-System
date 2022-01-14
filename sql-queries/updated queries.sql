@@ -19,26 +19,14 @@ INSERT INTO customer_details VALUES('gla343', 1, 479001,'7503589801761989 ','Gla
 INSERT INTO customer_details VALUES('lon612', 0, 432098,'3057171446652151 ','Lonnie','6607822161935602 ', '2026-07-29',230);
 INSERT INTO customer_details VALUES('yvo809', 0, 324561,'8417146815012068 ','Yvonne','3949438716933940 ', '2023-06-20',560);
 
-<<<<<<< Updated upstream:sql-queries/updated queries.sql
-=======
-3.	Admin_details
->>>>>>> Stashed changes:sql-queries/updated queries.txt
+-- 3.	Admin_details
 CREATE TABLE Admin_details(admin_id varchar(6), user_id varchar(6), admin_control_area varchar(15), CONSTRAINT PK_Admin PRIMARY KEY(admin_id, user_id));
 insert into Admin_details values('ari231','pat228',560024); 
 insert into Admin_details values('jes766','lan348',560024);
 insert into Admin_details values('bea504','gla343',560024);
 insert into Admin_details values('aly872','lon612',231102); 
 insert into Admin_details values('sla772','yvo809',231102); 
-<<<<<<< Updated upstream:sql-queries/updated queries.sql
-CREATE TABLE Address(pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
-
-insert into Address values(599118,'Bangalore','Karnataka');
-insert into Address values(600001,'Chennai','Tamilnadu');
-insert into Address values(110001,'Delhi','Haryana');
-insert into Address values(230532,'Mumbai','Maharashtra');
-insert into Address values(560091,'Hyderabad','Andrapradesh');
-=======
-4.	Address
+-- 4.	Address
 CREATE TABLE Address(user_id varchar(6), pincode integer, city varchar(20), state varchar(20), CONSTRAINT PK_Address PRIMARY KEY(pincode));
 
 insert into Address values('pat228',599118,'Bangalore','Karnataka');
@@ -46,8 +34,7 @@ insert into Address values('lan348',600001,'Chennai','Tamilnadu');
 insert into Address values('gla343',110001,'Delhi','Haryana');
 insert into Address values('lon612',230532,'Mumbai','Maharashtra');
 insert into Address values('yvo809',560091,'Hyderabad','Andrapradesh');
-5.	service_details
->>>>>>> Stashed changes:sql-queries/updated queries.txt
+-- 5.	service_details
 CREATE TABLE service_details(service_no integer(3), pincode integer(6), CONSTRAINT PK_ser PRIMARY KEY(service_no), FOREIGN key(pincode) REFERENCES Address(pincode), FOREIGN key(service_no) REFERENCES customer_details(service_no));
 INSERT INTO service_details VALUES(599,599118);
 INSERT INTO service_details VALUES(600,600001);

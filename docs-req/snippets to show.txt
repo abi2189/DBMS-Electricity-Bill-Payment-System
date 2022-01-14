@@ -1,0 +1,6 @@
+snippets to show
+
+dbh.php --> abi
+regCheck.php --> over to aks
+bills.php --> 143
+
