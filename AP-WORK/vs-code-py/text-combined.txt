@@ -1,0 +1,344 @@
+# STACK
+class mystack():
+    def __init__(self, size):
+        self.s=[]
+        self.max=size
+        self.top=-1
+        for i in range(0,self.max):
+            self.s.append(None)
+        
+    def isempty(self):
+        return ((self.top<0))
+    
+    
+    def printstack(self):
+        if(self.isempty()):
+            print("Stack is empty")
+        else:
+            for i in range(self.max):
+                if(self.s[i]!=None):
+                    print(self.s[i], end=" ")
+            print(" ")
+    
+    def push(self, item):
+        self.top=self.top+1 
+        self.s[self.top]=item
+    
+    def pop(self):
+        if (not(self.isempty())):
+            self.s[self.top]=None
+            self.top=self.top-1
+        else:
+            print("stack is empty")
+    
+    def size(self):
+        return(self.top+1)
+        
+    def topelement(self):
+        print(self.s[self.top])
+        
+s1=mystack(5)
+s1.isempty()
+s1.push(10)
+s1.push(20)
+s1.push(30)
+d=s1.size()
+print(d)
+s1.printstack()
+s1.topelement()
+s1.pop()
+s1.pop()
+s1.printstack()
+s1.topelement()
+
+# QUEUE ADT
+class MyQueue():
+    
+    def __init__(self,size):
+        # this is the queue container called 'queue'
+        self.queue = []
+        # front and back indexes
+        self.f = 0
+        self.r = -1
+        # define the queue size 'max_queue_size' and initialize it
+        self.max_queue_size = size
+        for i in range(0,self.max_queue_size):
+            self.queue.append(None)
+        self.sz=0
+
+    # define the enqueue operation which inserts the value into the queue, must throw a queue full exception("Queue Full Exception")
+    def enqueue(self, value):
+        #@start-editable@
+
+        if  self.size() == self.max_queue_size:
+            print ("Queue Full Exception")
+            return
+        else:
+            self.r = (self.r+1) % self.max_queue_size
+            self.queue[self.r] = value
+            self.sz+=1
+            self.printQueue()
+        
+        #@end-editable@
+        return
+                
+    # returns first elt of the queue if not empty, else throws "Queue Empty Exception"
+    
+    def dequeue(self):
+        if self.size()==0:
+            print("Queue Empty Exception")
+        else:
+            #@start-editable@
+
+            obj = self.queue[self.f]
+            self.queue[self.f] = None                
+            self.f = (self.f+1)%self.max_queue_size            
+            self.sz = self.sz-1
+            #@end-editable@
+            return obj
+       
+    
+    # returns front element without removing it if the queue is not empty, else throws exception  ("Queue Empty Exception") 
+    def front(self):
+        #@start-editable@
+
+        if (self.size()!=0):
+            return self.queue[self.f]
+        else:
+            print("Queue Empty Exception")
+        
+        #@end-editable@
+     
+    # returns True if queue is empty
+    def isEmpty(self):
+        #@start-editable@
+
+        return (self.sz==0)
+        
+        #@end-editable@
+
+    # returns the number of elements currently in queue
+        
+    def size(self):
+        #@start-editable@
+
+        return (self.sz)
+        #@end-editable@
+
+    def printQueue(self):
+        if (self.isEmpty()):
+            print ("Queue Empty")
+        else:
+            for i in range(self.max_queue_size):
+                if self.queue[i]!=None:
+                    print(self.queue[i],end=" ")
+            print(" ")
+
+q1=MyQueue(7)
+print(q1.size())
+print(q1.isEmpty())
+q1.enqueue(10)
+q1.enqueue(20)
+q1.enqueue(30)
+q1.enqueue(40)
+q1.enqueue(50)
+print(q1.dequeue())
+print(q1.dequeue())
+print(q1.dequeue())
+q1.printQueue()           
+print(q1.front())
+print(q1.f)
+print(q1.r)
+
+# LinkedList ADT
+class SLList():
+    class node():
+        def __init__(self,data):
+            self.element=data
+            self.next = None
+    
+    def __init__(self):
+        self.head = self.node(None)
+        self.size = 0
+    
+    def isEmpty(self):
+        if self.size>0:
+            return False
+        else:
+            return True
+        
+    def insertFirst(self,data):
+        newNode = self.node(data)
+        if self.size == 0:
+            self.head.element = newNode.element
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.size += 1
+        
+     
+    
+    def printList(self):
+        if (self.isEmpty()):
+            print("List is Empty")
+        else:
+            currentNode = self.head
+            while(currentNode != None):
+                print(currentNode.element, end =" ")
+                currentNode = currentNode.next
+            print("")
+            
+        
+    def deleteFirst(self):
+        if(self.isEmpty()):
+            print("List is Empty")
+        else:
+            if (self.head.next == None):
+                self.head.element = None
+            else:
+                temp = self.head
+                self.head = self.head.next
+                del temp
+            self.size -=1
+            
+    def insertLast(self,data):
+        newNode=self.node(data)
+        if(self.size==None):
+            self.head.element=newNode.element
+        else:
+            currentNode=self.head
+            while(currentNode.next!=None):
+                currentNode=currentNode.next
+            currentNode.next=newNode
+        self.size+=1
+   
+    def deleteLast(self):
+        currentNode=self.head
+        while(currentNode.next.next!=None):
+            currentNode=currentNode.next
+        currentNode.next=None
+            
+    def listSize(self):
+        return self.size
+            
+
+
+sll = SLList()
+print(sll.isEmpty())
+sll.insertFirst(10)
+sll.insertFirst(20)
+sll.insertFirst(30)
+sll.insertLast(40)
+sll.insertLast(50)
+sll.insertLast(60)
+sll.printList()
+print(sll.listSize())
+sll.deleteFirst()
+sll.deleteLast()
+sll.printList()
+print(sll.listSize())
+print(sll.isEmpty())
+
+
+
+=======================
+
+// QUEUE STL
+
+#include <iostream> 
+#include <queue> 
+using namespace std;
+void display(queue <int> Q1)
+{ 
+    queue <int> Q = Q1; 
+    while (!Q.empty()) 
+    { 
+        cout << '\t' << Q.front();
+        Q.pop(); 
+
+    } 
+    cout << '\n';
+}
+int main() 
+{ 
+    int i=1;
+    float p;
+    queue <int> qd; 
+    while (i<5)
+    {
+        cout<<"enter eleement "<<i<<":\n";
+        cin>>p;
+        qd.push(p);
+        i++;
+    }
+    cout << "Queue:\n"; 
+    display(qd);
+    cout<<"Popping an element from the queue..\n";
+    qd.pop();
+    display(qd);
+    cout<<qd.back()<<"  "<<qd.size()<<"  "<<qd.front();
+    //cout<<qd.size();
+    return 0; 
+}
+
+// STACK STL
+#include <iostream> 
+#include<stack>
+using namespace std; 
+void display(stack <int> e)
+{ 
+    while (!e.empty()) 
+    { 
+        cout << '\t' << e.top(); 
+        e.pop(); 
+    } 
+    cout << '\n'; 
+}
+int main ()
+{ 
+    stack <int> s; 
+    s.push(1); 
+    s.push(0);
+    s.push(2); 
+    s.push(6); 
+
+    cout << "The stack is : "; 
+    display(s); 
+    cout << "\nThe top element of the stack:\n" << s.top();
+    cout << "\nStack after removing the top element from the stack:\n"; 
+    s.pop(); 
+    display(s); 
+    return 0; 
+}
+
+// List STL
+#include <iostream>
+#include <list>
+#include <iterator>
+using namespace std;
+void showlist(list <int> g)
+{
+list <int> :: iterator it;
+for(it = g.begin(); it != g.end(); ++it)
+{ cout << '\t' << *it; }
+cout << '\n';
+}
+int main(){
+list <int> gqlist1, gqlist2;
+for (int i = 0; i < 10; ++i){
+gqlist1.push_back(i * 2);
+gqlist2.push_front(i * 3);
+}
+cout << "\nList 1 (gqlist1) is : ";
+showlist(gqlist1);
+cout << "\nList 2 (gqlist2) is : ";
+showlist(gqlist2);
+cout << "\ngqlist1.front() : " << gqlist1.front();
+cout << "\ngqlist1.back() : " << gqlist1.back();
+cout << "\ngqlist1.pop_front() : ";
+gqlist1.pop_front();
+showlist(gqlist1);
+cout << "\ngqlist2.pop_back() : ";
+gqlist2.pop_back();
+showlist(gqlist2);
+return 0;}

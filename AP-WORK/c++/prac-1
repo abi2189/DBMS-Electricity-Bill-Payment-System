@@ -1,0 +1,14 @@
+#include <iostream> //input output stream --> preprocessor directive
+using namespace std; //“using namespace std” means we use the namespace named std. “std” is an abbreviation for standard. So that means we use all the things with in “std” namespace. 
+
+int main() {
+    int a(69) ;
+    
+    cout<<"hello\tworld\n";
+    cout<<"use"<<endl;
+    cout<<"haa"; // uses ostream//insertion
+    cin>>a; // uses istream//extraction
+    
+
+    return 0;
+}
